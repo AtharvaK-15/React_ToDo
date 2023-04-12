@@ -1,13 +1,24 @@
 import "./styles.css"
+import { useState } from "react"
 
 export default function App(){
+  // used js destructuring concept:
+  const [newItem , setNewItem] = useState("")
+
   return (
     // <> this is a fragment used as inside one component only one element can get returned.
     <>
   <form className="new-item-form">
     <div className="form-row">
       <label htmlFor="item">New Item</label>
-      <input type="text" id="item" />
+      <input
+       value={newItem}
+      // onchange detects when the value of an input element changes. 
+      // Value returns the value of the data at the cursor's current position.
+       onChange = {e=>setNewItem(e.target.value)}
+       type="text"
+      id="item" 
+      />
     </div>
     <button className="btn">Add</button>
   </form>
